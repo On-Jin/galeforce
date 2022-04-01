@@ -446,7 +446,7 @@ describe('/galeforce/actions', () => {
                     it('should throw when not provided a region', () => expect(Galeforce.lol.summoner().name('SSG Xayah').exec())
                         .to.eventually.be.rejectedWith('[galeforce]: Action payload region is required but undefined.'));
                     it('should reject with correct error message when receiving a 404 status code', () => expect(Galeforce.lol.summoner().region(Galeforce.region.lol.NORTH_AMERICA).name('404').exec())
-                        .to.eventually.be.rejectedWith('[galeforce]: Data fetch failed with status code 404'));
+                        .to.eventually.be.rejectedWith('Request failed with status code 404'));
                     it('should retry on timer and not throw when response rate limit exceeded', () => new Promise((resolve, reject) => {
                         const autoTimeout = setTimeout(resolve, 500);
                         Galeforce.lol.summoner().region(Galeforce.region.lol.NORTH_AMERICA).name('429').exec()
@@ -456,9 +456,9 @@ describe('/galeforce/actions', () => {
                             });
                     }));
                     it('should reject with correct error message when receiving a 403 status code', () => expect(Galeforce.lol.summoner().region(Galeforce.region.lol.NORTH_AMERICA).name('403').exec())
-                        .to.eventually.be.rejectedWith('[galeforce]: The provided Riot API key is invalid or has expired. Please verify its authenticity. (403 Forbidden)'));
-                    it('should reject with correct error message when receiving a 403 status code', () => expect(Galeforce.lol.summoner().region(Galeforce.region.lol.NORTH_AMERICA).name('401').exec())
-                        .to.eventually.be.rejectedWith('[galeforce]: No Riot API key was provided. Please ensure that your key is present in your configuration file or object. (401 Unauthorized)'));
+                        .to.eventually.be.rejectedWith('Request failed with status code 403'));
+                    it('should reject with correct error message when receiving a 401 status code', () => expect(Galeforce.lol.summoner().region(Galeforce.region.lol.NORTH_AMERICA).name('401').exec())
+                        .to.eventually.be.rejectedWith('Request failed with status code 401'));
                     it('should timeout when interval rate limit exceeded', () => new Promise((resolve, reject) => {
                         const GaleforceRL = new GaleforceModule('./test/test-configs/1.yaml');
                         const autoTimeout = setTimeout(resolve, 500);
