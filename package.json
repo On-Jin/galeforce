@@ -76,7 +76,8 @@
     "build": "npx tsc --project tsconfig.json",
     "test": "mocha --exit",
     "postinstall": "node ./scripts/postinstall.js",
-    "docs": "npx typedoc"
+    "docs": "npx typedoc",
+    "prepare": "npm run build"
   },
   "remarkConfig": {
     "plugins": [
