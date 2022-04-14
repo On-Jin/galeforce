@@ -205,7 +205,9 @@ interface Info {
     tournamentCode: string;
 }
 
-export interface MatchDTO {
+interface MatchDTO {
     metadata: Metadata;
     info: Info;
 }
+
+export { MatchDTO, Perks };
