@@ -210,4 +210,22 @@ interface MatchDTO {
     info: Info;
 }
 
-export { MatchDTO, Perks };
+export {
+    MatchDTO,
+    Perks,
+    Info,
+    Ban,
+    StatPerks,
+    Baron,
+    Dragon,
+    Inhibitor,
+    Metadata,
+    Objectives,
+    Style,
+    Participant,
+    RiftHerald,
+    Team,
+    Tower,
+    Selection,
+    Champion,
+};
